@@ -7,5 +7,5 @@ module.exports = {
     cooldown: 60,
     execute(message, args) {
         message.channel.send(`Nom du serveur : ${message.guild.name}\nNombre de membres : ${message.guild.memberCount}`);
-    },
+    }
 };

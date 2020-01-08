@@ -24,5 +24,5 @@ module.exports = {
 
         }else return message.reply('Désolé mais je n\'obéis qu\' à mon maître !');
     }
-
+  
 };
