@@ -20,5 +20,5 @@ module.exports = {
         });
 
         message.reply(`${amount - 1} message supprimés !`)
-    },
+    }
 };
