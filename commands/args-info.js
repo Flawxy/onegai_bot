@@ -11,5 +11,5 @@ module.exports = {
         }
 
         message.channel.send(`Arguments: ${args}\nArguments length: ${args.length}`);
-    },
+    }
 };
