@@ -1,4 +1,6 @@
 const {prefix} = require('../config');
+const rp = require('request-promise');
+const $ = require('cheerio');
 
 module.exports = {
     name: 'fs',
@@ -12,15 +14,16 @@ module.exports = {
         if (args[0].toLowerCase() === 'php' && args[1]) {
             //Tout ce qui concerne la documentation PHP
 
-            const rp = require('request-promise');
-            const $ = require('cheerio');
             const url = `https://www.php.net/${args[1]}`;
 
             rp(url)
                 .then(html => {
                     //success!
-                    message.reply('test');
-                    console.log($('div.dc-description', html).textContent);
+                    let variable = $.load(html);
+
+                    message.reply("```" +
+                        $('.methodsynopsis', html).text()+
+                    "```");
 
                 })
                 .catch(err =>{
@@ -28,10 +31,6 @@ module.exports = {
                     console.log(err);
                 });
 
-
-
-
-            console.log('Requête envoyée');
             return message.reply(`<https://www.php.net/${args[1]}>`);
         }
 
