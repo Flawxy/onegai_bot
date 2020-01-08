@@ -13,21 +13,25 @@ module.exports = {
             //Tout ce qui concerne la documentation PHP
 
             const rp = require('request-promise');
+            const $ = require('cheerio');
             const url = `https://www.php.net/${args[1]}`;
 
             rp(url)
-                .then(function(html){
+                .then(html => {
                     //success!
-                    console.log(html);
+                    message.reply('test');
+                    console.log($('div.dc-description', html).textContent);
+
                 })
-                .catch(function(err){
+                .catch(err =>{
                     //handle error
+                    console.log(err);
                 });
 
 
 
 
-
+            console.log('Requête envoyée');
             return message.reply(`<https://www.php.net/${args[1]}>`);
         }
 
