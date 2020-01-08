@@ -1,6 +1,6 @@
 {
   "name": "onegai_bot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "onegAI bot for Discord environment",
   "main": "bot.js",
   "scripts": {
@@ -22,8 +22,11 @@
   },
   "homepage": "https://github.com/Flawxy/onegai_bot#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "discord.js": "^11.5.1",
     "nodemon": "^2.0.2",
-    "request-promise": "latest"
+    "puppeteer": "^2.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
   }
 }
