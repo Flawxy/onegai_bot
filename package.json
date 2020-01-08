@@ -2,7 +2,7 @@
   "name": "onegai_bot",
   "version": "0.1.1",
   "description": "onegAI bot for Discord environment",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
