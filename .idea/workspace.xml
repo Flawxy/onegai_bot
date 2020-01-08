@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/fetchSyntax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands/fs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/delete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/kick.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/kick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578488110570</updated>
-      <workItem from="1578488113028" duration="10198000" />
+      <workItem from="1578488113028" duration="7450000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
@@ -85,6 +84,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578501305884">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1578501305884" />
     <state x="293" y="53" key="CommitChangelistDialog2" timestamp="1578491517819">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

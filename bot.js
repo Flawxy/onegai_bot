@@ -7,6 +7,7 @@ client.commands = new Discord.Collection();
 
 const cooldowns = new Discord.Collection();
 
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -26,7 +27,7 @@ client.on('guildMemberAdd', member => {
     // Do nothing if the channel wasn't found on this server
     if (!channel) return;
     // Send the message, mentioning the member
-    channel.send(`Bienvenue sur le serveur de Flawxy, ${member} !`);
+    channel.send(`Bienvenue sur le serveur de ${member.guild.owner}, ${member} !`);
 });
 
 
@@ -82,8 +83,8 @@ client.on('message', message => {
             command.execute(message, args);
         } catch (error) {
             console.error(error);
-            message.reply('there was an error trying to execute that command!');
+            message.reply('Une erreur s\'est produite lors de l\'exécution de cette commande');
         }
 });
 
-client.login(token);
+client.login(process.env.token || token);
