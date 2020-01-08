@@ -1,0 +1,24 @@
+{
+  "name": "onegai_bot",
+  "version": "0.1.0",
+  "description": "onegAI bot for Discord environment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flawxy/onegai_bot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "ai"
+  ],
+  "author": "Flawxy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flawxy/onegai_bot/issues"
+  },
+  "homepage": "https://github.com/Flawxy/onegai_bot#readme"
+}
