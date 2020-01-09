@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const {prefix} = require('./config.json');
-const {token} = require('./token.json');
+const {token} = process.env.BOT_TOKEN || require('./token.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -18,6 +18,11 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('onegAI is ready to go!');
+    const channel = client.channels.find(ch => ch.name === 'taverne');
+    if (!channel) return;
+    channel.send(`onegAI is ready to go!`);
+    if(process.env.BOT_TOKEN){channel.send('Currently listening from heroku server!');}
+    else{channel.send('Currently listening from local host!');}
 });
 
 
@@ -88,4 +93,4 @@ client.on('message', message => {
         }
 });
 
-client.login(process.env.token || token);
+client.login(process.env.BOT_TOKEN || token);
