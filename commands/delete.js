@@ -4,7 +4,7 @@ module.exports = {
     args: true,
     usage: '<nombre>',
     guildOnly: false,
-    cooldown: 15,
+    cooldown: 1,
     execute(message, args) {
         if(message.member.hasPermission('MANAGE_CHANNELS')) {
             const amount = parseInt(args[0]) + 1;
