@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/version.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,9 @@
       <workItem from="1578560284962" duration="868000" />
       <workItem from="1578567597341" duration="82000" />
       <workItem from="1578567698236" duration="372000" />
-      <workItem from="1578568546557" duration="25000" />
+      <workItem from="1578568546557" duration="133000" />
+      <workItem from="1578568689128" duration="2000" />
+      <workItem from="1578569032877" duration="103000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>

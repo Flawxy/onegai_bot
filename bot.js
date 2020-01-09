@@ -86,10 +86,10 @@ client.on('message', message => {
 
     try {
         command.execute(message, args);
-        console.log(`Commande "${command.name}" réclamée par ${message.author.username}.`);
+        return console.log(`Commande "${command.name}" réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
     } catch (error) {
         console.error(error);
-        console.log(`Commande ${command} réclamée par ${message.author.username}.`);
+        console.log(`Commande "${command.name}" réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
         return message.reply('Une erreur s\'est produite lors de l\'exécution de cette commande');
     }
 });
