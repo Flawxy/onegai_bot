@@ -84,12 +84,14 @@ client.on('message', message => {
     timestamps.set(message.author.id, now);
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-        try {
-            command.execute(message, args);
-        } catch (error) {
-            console.error(error);
-            message.reply('Une erreur s\'est produite lors de l\'exécution de cette commande');
-        }
+    try {
+        command.execute(message, args);
+        console.log(`Commande "${command.name}" réclamée par ${message.author.username}.`);
+    } catch (error) {
+        console.error(error);
+        console.log(`Commande ${command} réclamée par ${message.author.username}.`);
+        return message.reply('Une erreur s\'est produite lors de l\'exécution de cette commande');
+    }
 });
 
 client.login(process.env.BOT_TOKEN || token);
