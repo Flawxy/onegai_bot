@@ -29,7 +29,6 @@ module.exports = {
 
                     }
                     const refName = $('.refname', html).eq(0).text().trim();
-                    console.log(refName);
                     const description = $('.dc-title', html).text().trim() ;
                     let syntax = '';
                     for (let i = 0; i < $('.methodsynopsis', html).length; i++){
