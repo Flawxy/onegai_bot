@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/listening.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commands/version.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +70,8 @@
       <workItem from="1578558672887" duration="1134000" />
       <workItem from="1578560284962" duration="868000" />
       <workItem from="1578567597341" duration="82000" />
-      <workItem from="1578567698236" duration="108000" />
+      <workItem from="1578567698236" duration="372000" />
+      <workItem from="1578568546557" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
@@ -91,10 +92,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578501305884">
+    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578568560311">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1578501305884" />
+    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1578568560311" />
     <state x="293" y="53" key="CommitChangelistDialog2" timestamp="1578491517819">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
