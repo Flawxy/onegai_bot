@@ -4,6 +4,7 @@ const $ = require('cheerio');
 
 module.exports = {
     name: 'fetchdoc',
+    aliases: ['fd'],
     description: 'Cherche la documentation de la notion précisée dans le langage précisé.',
     args: true,
     usage: '<langage> <notion>',
