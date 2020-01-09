@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/fetchSyntax.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchSyntax.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/fs.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,7 @@
       <updated>1578488110570</updated>
       <workItem from="1578488113028" duration="7450000" />
       <workItem from="1578516332457" duration="432000" />
-      <workItem from="1578531483770" duration="65000" />
+      <workItem from="1578531483770" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
