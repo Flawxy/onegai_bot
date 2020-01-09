@@ -3,8 +3,8 @@ const rp = require('request-promise');
 const $ = require('cheerio');
 
 module.exports = {
-    name: 'fetchsyntax',
-    description: 'Cherche la syntaxe de la notion précisée dans le langage précisé.',
+    name: 'fetchdoc',
+    description: 'Cherche la documentation de la notion précisée dans le langage précisé.',
     args: true,
     usage: '<langage> <notion>',
     guildOnly: false,
@@ -23,8 +23,7 @@ module.exports = {
                     if($('.methodsynopsis', html).length === 0){
                         const closestMatch = $('#quickref_functions > li', html).eq(0).text();
                         message.reply("Il semblerait que cette fonction n\'existe pas..." +
-                            `\nRésultat le plus proche : **${closestMatch}**` +
-                            ` (https://www.php.net/${closestMatch})`);
+                            `\nRésultat le plus proche : **${closestMatch}**`);
                         return this.execute(message, ['php', closestMatch]);
 
                     }
