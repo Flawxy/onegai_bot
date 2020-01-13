@@ -4,6 +4,9 @@
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/fetchDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/phpDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/phpDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +77,7 @@
       <workItem from="1578568689128" duration="2000" />
       <workItem from="1578569032877" duration="140000" />
       <workItem from="1578570078989" duration="107000" />
-      <workItem from="1578940610593" duration="3459000" />
+      <workItem from="1578940610593" duration="7993000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>

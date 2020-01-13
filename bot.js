@@ -2,6 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const {prefix, adminID} = require('./config.json');
 const {token} = process.env.BOT_TOKEN || require('./token.json');
+const mongoose = require('mongoose');
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
@@ -15,6 +16,13 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     bot.commands.set(command.name, command);
 }
+
+mongoose.connect('mongodb+srv://Flawxy:u19vbcvgxQgOeHZ3@onegaidb-tj9rb.mongodb.net/test?retryWrites=true&w=majority',
+    { useNewUrlParser: true,
+        useUnifiedTopology: true })
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(() => console.log('Connexion à MongoDB échouée !'));
+
 
 bot.once('ready', () => {
 
