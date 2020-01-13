@@ -17,10 +17,13 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
+
+    client.user.setPresence({ activity: { name: 'rapporter la baballe' }, status: 'online'})
+        .then()
+        .catch( error => {console.log('Erreur lors de l\'attribution du statut du bot : '+error)});
+
+
     console.log('onegAI is ready to go!');
-    const channel = client.channels.find(ch => ch.name === 'taverne');
-    if (!channel) return;
-    channel.send(`onegAI is ready to go!`);
     process.env.BOT_TOKEN ?
         console.log('Currently listening from heroku server!') :
         console.log('Currently listening from local host!');
