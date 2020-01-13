@@ -48,7 +48,7 @@ module.exports = {
                         tab2 = tab2.replace(']', ' ]');
                         tab2 = tab2.replace(')',' )');
                         tab2 = tab2.replace('  ', ' ');
-                        syntax += `\n ${tab2}`;
+                        syntax += `${tab2}`;
 
                     }
                     PhpDoc.findOne({ name: refName })
