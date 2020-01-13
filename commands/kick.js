@@ -4,6 +4,7 @@ module.exports = {
     args: true,
     usage: '<user>',
     guildOnly: true,
+    adminOnly: false,
     cooldown: 0,
     execute(message, args) {
         if (message.member.hasPermission('KICK_MEMBERS')) {

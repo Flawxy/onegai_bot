@@ -4,6 +4,7 @@ module.exports = {
     args: true,
     usage: '<nombre>',
     guildOnly: false,
+    adminOnly: false,
     cooldown: 1,
     execute(message, args) {
         if(message.member.hasPermission('MANAGE_CHANNELS')) {

@@ -4,6 +4,7 @@ module.exports = {
     args: false,
     usage: '',
     guildOnly: true,
+    adminOnly: true,
     cooldown: 60,
     execute(message, args) {
         const {version} = require('../package');

@@ -4,6 +4,7 @@ module.exports = {
     args: false,
     usage: '',
     guildOnly: false,
+    adminOnly: true,
     cooldown: 60,
     execute(message, args) {
         if(process.env.BOT_TOKEN) {

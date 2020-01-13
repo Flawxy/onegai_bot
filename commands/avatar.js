@@ -4,6 +4,7 @@ module.exports = {
     args: false,
     usage: '',
     guildOnly: false,
+    adminOnly: false,
     cooldown: 0,
     execute(message, args) {
         if (!message.mentions.users.size) {
