@@ -1,3 +1,5 @@
+const PhpDoc = require('../models/phpDoc');
+
 const {prefix} = require('../config');
 const rp = require('request-promise');
 const $ = require('cheerio');
@@ -32,6 +34,7 @@ module.exports = {
                     const refName = $('.refname', html).eq(0).text().trim();
                     const description = $('.dc-title', html).text().trim() ;
                     let syntax = '';
+
                     for (let i = 0; i < $('.methodsynopsis', html).length; i++){
                         let tab = $('.methodsynopsis', html).eq(i).text().trim().replace(',','é').split(/\n */);
                         let tab2 = '';
@@ -48,13 +51,39 @@ module.exports = {
                         syntax += `\n ${tab2}`;
 
                     }
-                    message.channel.send("__Fonction :__\n"+
-                        "**"+ refName + "** :arrow_right: `" + description +"`"+
-                        "\n__Syntaxe :__\n"+
-                        "```c++\n"+
-                        syntax+
-                        "```");
-                    return message.reply(`https://www.php.net/${args[1]}`);
+                    PhpDoc.findOne({ name: refName })
+                        .then(phpDoc =>{
+                        if(!phpDoc) {
+                            console.log(refName);
+                            const newDoc = new PhpDoc({
+                                name: refName,
+                                description: description,
+                                syntax: syntax,
+                                url: url
+                            });
+                            newDoc.save()
+                                .then((newDoc) => {
+                                message.reply("\n__Fonction :__\n"+
+                                "**"+ newDoc.name + "** :arrow_right: `" + newDoc.description +"`"+
+                                "\n__Syntaxe :__\n"+
+                                "```c++\n"+
+                                newDoc.syntax+
+                                "```\n"+
+                                `https://www.php.net/${args[1]}`);
+                                console.log(`L'entrée ${newDoc.name} a bien été ajoutée à la BDD !`)})
+                                .catch(error => console.error('Erreur lors de l\'enregistrement dans la BDD : '+error));
+                        }
+                           return message.reply("\n__Fonction :__\n"+
+                                "**"+ phpDoc.name + "** :arrow_right: `" + phpDoc.description +"`"+
+                                "\n__Syntaxe :__\n"+
+                                "```c++\n"+
+                                phpDoc.syntax+
+                                "```\n"+
+                                `https://www.php.net/${args[1]}`);
+                        })
+                        .catch(error => console.error('L\'entrée ne se trouve pas dans la BDD'));
+
+
                 })
                 .catch(err =>{
                     //handle error
