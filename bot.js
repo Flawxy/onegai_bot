@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 const {prefix, adminID} = require('./config.json');
 const {token} = process.env.BOT_TOKEN || require('./token.json');
 
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const bot = new Discord.Client();
+bot.commands = new Discord.Collection();
 
 const cooldowns = new Discord.Collection();
 
@@ -13,13 +13,13 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
+    bot.commands.set(command.name, command);
 }
 
-client.once('ready', () => {
+bot.once('ready', () => {
 
-    client.user.setPresence({ game: { name: 'rapporter la baballe' }, status: 'online'})
-        .then(presence => console.log(`Statut du bot attribué : ${presence}`))
+    bot.user.setPresence({ game: { name: 'rapporter la baballe' }, status: 'online'})
+        .then(() => console.log(`Statut du bot attribué : ${bot.user.presence}`))
         .catch(error => {console.log('Erreur lors de l\'attribution du statut du bot : '+error)});
 
 
@@ -31,7 +31,7 @@ client.once('ready', () => {
 
 
 // Create an event listener for new guild members
-client.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
     // Send the message to a designated channel on a server:
     const channel = member.guild.channels.find(ch => ch.name === 'taverne');
     // Do nothing if the channel wasn't found on this server
@@ -42,14 +42,14 @@ client.on('guildMemberAdd', member => {
 
 
 
-client.on('message', message => {
+bot.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
 
-    const command = client.commands.get(commandName)
-                    || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+    const command = bot.commands.get(commandName)
+                    || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     if (!command) return;
 
@@ -103,4 +103,4 @@ client.on('message', message => {
     }
 });
 
-client.login(process.env.BOT_TOKEN || token);
+bot.login(process.env.BOT_TOKEN || token);
