@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const {prefix} = require('./config.json');
+const {prefix, adminID} = require('./config.json');
 const {token} = process.env.BOT_TOKEN || require('./token.json');
 
 const client = new Discord.Client();
@@ -21,8 +21,9 @@ client.once('ready', () => {
     const channel = client.channels.find(ch => ch.name === 'taverne');
     if (!channel) return;
     channel.send(`onegAI is ready to go!`);
-    if(process.env.BOT_TOKEN){channel.send('Currently listening from heroku server!');}
-    else{channel.send('Currently listening from local host!');}
+    process.env.BOT_TOKEN ?
+        console.log('Currently listening from heroku server!') :
+        console.log('Currently listening from local host!');
 });
 
 
@@ -51,6 +52,11 @@ client.on('message', message => {
 
     if (command.guildOnly && message.channel.type !== 'text') {
         return message.reply('Je ne peux pas utiliser cette commande dans les messages privés !');
+    }
+
+    if (command.adminOnly && message.author.id !== adminID) {
+        console.log(`Commande "${command.name}" a été bloquée : réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
+        return message.reply('Désolé mais cette commande est réservée à l\'administration du bot.');
     }
 
     if (command.args && !args.length) {
@@ -86,10 +92,10 @@ client.on('message', message => {
 
     try {
         command.execute(message, args);
-        return console.log(`Commande "${command.name}" réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
+        return console.log(`Commande "${command.name}" réussie : réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
     } catch (error) {
         console.error(error);
-        console.log(`Commande "${command.name}" réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
+        console.log(`Commande "${command.name}" a retourné une erreur : réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
         return message.reply('Une erreur s\'est produite lors de l\'exécution de cette commande');
     }
 });

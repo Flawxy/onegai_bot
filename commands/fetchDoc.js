@@ -9,6 +9,7 @@ module.exports = {
     args: true,
     usage: '<langage> <notion>',
     guildOnly: false,
+    adminOnly: false,
     cooldown: 0,
     execute(message, args) {
         if (!args[1]) return message.channel.send(`\nLa bonne syntaxe est : \`${prefix}${this.name} ${this.usage}\``);

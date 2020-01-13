@@ -4,6 +4,7 @@ module.exports = {
     args: false,
     usage: '',
     guildOnly: true,
+    adminOnly: false,
     cooldown: 60,
     execute(message, args) {
         message.channel.send(`Nom du serveur : ${message.guild.name}\nNombre de membres : ${message.guild.memberCount}`);
