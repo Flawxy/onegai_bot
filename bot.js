@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 bot.once('ready', () => {
 
     bot.user.setPresence({ game: { name: 'rapporter la baballe' }, status: 'online'})
-        .then(() => console.log(`Statut du bot attribué : ${bot.user.presence}`))
+        .then((clientUser) => console.log(`Statut du bot attribué : "Joue à ${clientUser.localPresence.game.name} + Statut : ${clientUser.localPresence.status}"`))
         .catch(error => {console.log('Erreur lors de l\'attribution du statut du bot : '+error)});
 
 
