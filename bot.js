@@ -18,9 +18,9 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 
-    client.user.setPresence({ activity: { name: 'rapporter la baballe' }, status: 'online'})
-        .then()
-        .catch( error => {console.log('Erreur lors de l\'attribution du statut du bot : '+error)});
+    client.user.setPresence({ game: { name: 'rapporter la baballe' }, status: 'online'})
+        .then(presence => console.log(`Statut du bot attribué : ${presence}`))
+        .catch(error => {console.log('Erreur lors de l\'attribution du statut du bot : '+error)});
 
 
     console.log('onegAI is ready to go!');
