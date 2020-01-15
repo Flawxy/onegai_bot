@@ -7,7 +7,7 @@ const $ = require('cheerio');
 module.exports = {
     name: 'fetchdoc',
     aliases: ['fd'],
-    description: 'Cherche la documentation de la notion précisée dans le langage précisé.',
+    description: 'Cherche la documentation de la notion précisée dans le langage précisé (PHP uniquement actuellement).',
     args: true,
     usage: '<langage> <notion>',
     guildOnly: false,
@@ -53,6 +53,7 @@ module.exports = {
                     }
                     PhpDoc.findOne({ name: refName })
                         .then(phpDoc =>{
+                        // Si la recherche n'existe pas dans la BDD
                         if(!phpDoc) {
                             const newDoc = new PhpDoc({
                                 name: refName,
@@ -60,7 +61,9 @@ module.exports = {
                                 syntax: syntax,
                                 url: url
                             });
+                            // On ajoute la recherche en nouvelle entrée de BDD
                             newDoc.save()
+                                // Puis on affiche le résultat à l'utilisateur
                                 .then((newDoc) => {
                                 message.reply("\n__Fonction :__\n"+
                                 "**"+ newDoc.name + "** :arrow_right: `" + newDoc.description +"`"+
@@ -72,6 +75,7 @@ module.exports = {
                                 console.log(`L'entrée ${newDoc.name} a bien été ajoutée à la BDD !`)})
                                 .catch(error => console.error('Erreur lors de l\'enregistrement dans la BDD : '+error));
                         }
+                        // Si la recherche est présente dans la BDD on l'affiche directement
                            return message.reply("\n__Fonction :__\n"+
                                 "**"+ phpDoc.name + "** :arrow_right: `" + phpDoc.description +"`"+
                                 "\n__Syntaxe :__\n"+
@@ -80,12 +84,10 @@ module.exports = {
                                 "```\n"+
                                 `https://www.php.net/${args[1]}`);
                     })
+                        // On confirme que l'entrée n'est pas présente dans la BDD
                         .catch(error => console.error('L\'entrée ne se trouve pas dans la BDD...'));
                     })
-                .catch(err =>{
-                    //handle error
-                    console.log(err);
-                });
+                .catch(err =>{ console.log(err); });
         }
     }
 };
