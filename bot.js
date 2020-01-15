@@ -66,10 +66,7 @@ bot.on('message', message => {
         return message.reply('Je ne peux pas utiliser cette commande dans les messages privés !');
     }
 
-    console.error('env : ' + process.env.ADMIN_ID);
-    console.error('adminID : ' + adminID);
-    console.error('user ID : ' + message.author.id);
-    if (command.adminOnly && message.author.id !== adminID) {
+    if (command.adminOnly && (message.author.id !== process.env.ADMIN_ID && message.author.id !== adminID)) {
         console.log(`Commande "${command.name}" a été bloquée : réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
         return message.reply('Désolé mais cette commande est réservée à l\'administration du bot.');
     }
