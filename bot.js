@@ -26,12 +26,12 @@ mongoose.connect('mongodb+srv://Flawxy:u19vbcvgxQgOeHZ3@onegaidb-tj9rb.mongodb.n
 
 
 bot.once('ready', () => {
-
+    //Attribution de l'activité et du statut du bot
     bot.user.setPresence({ game: { name: 'rapporter la baballe' }, status: 'online'})
         .then((clientUser) => console.log(`Statut du bot attribué : "Joue à ${clientUser.localPresence.game.name} + Statut : ${clientUser.localPresence.status}"`))
         .catch(error => {console.log('Erreur lors de l\'attribution du statut du bot : '+error)});
 
-
+    //Confirmation du bon fonctionnement du bot
     console.log('onegAI is ready to go!');
     process.env.BOT_TOKEN ?
         console.log('Currently listening from heroku server!') :
@@ -39,18 +39,18 @@ bot.once('ready', () => {
 });
 
 
-// Create an event listener for new guild members
+// Nouvel événement quand un nouvel utilisateur rejoint le serveur
 bot.on('guildMemberAdd', member => {
-    // Send the message to a designated channel on a server:
-    const channel = member.guild.channels.find(ch => ch.name === 'taverne');
-    // Do nothing if the channel wasn't found on this server
+    // Sélectionne le channel précisé
+    const channel = member.guild.channels.find(ch => ch.name === 'discussion');
+    // Ne fait rien si le channel n'existe pas
     if (!channel) return;
-    // Send the message, mentioning the member
+    // Si le channel existe, envoie un message de bienvenue
     channel.send(`Bienvenue sur le serveur de ${member.guild.owner}, ${member} !`);
 });
 
 
-
+// Nouvel événement sur des messages précis
 bot.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -61,19 +61,19 @@ bot.on('message', message => {
                     || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     if (!command) return;
-
+    // Si une commande guildOnly est utilisée en DM, on la bloque
     if (command.guildOnly && message.channel.type !== 'text') {
         return message.reply('Je ne peux pas utiliser cette commande dans les messages privés !');
     }
-
+    // Si une commande adminOnly (créateur du bot) est utilisée par une autre personne, on la bloque
     if (command.adminOnly && message.author.id !== (process.env.ADMIN_ID || adminID)) {
         console.log(`Commande "${command.name}" a été bloquée : réclamée par ${message.author.username} sur le serveur ${message.guild}.`);
         return message.reply('Désolé mais cette commande est réservée à l\'administration du bot.');
     }
-
+    // Si les arguments nécessaires à une commande n'ont pas été précisés
     if (command.args && !args.length) {
         let reply = `Tu n'as précisé aucun argument, ${message.author}!`;
-
+        // On affiche la bonne syntaxe de la commande
         if (command.usage) {
             reply += `\nLa bonne syntaxe est : \`${prefix}${command.name} ${command.usage}\``;
         }
