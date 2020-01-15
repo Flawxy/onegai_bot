@@ -54,7 +54,6 @@ module.exports = {
                     PhpDoc.findOne({ name: refName })
                         .then(phpDoc =>{
                         if(!phpDoc) {
-                            console.log(refName);
                             const newDoc = new PhpDoc({
                                 name: refName,
                                 description: description,
@@ -80,18 +79,13 @@ module.exports = {
                                 phpDoc.syntax+
                                 "```\n"+
                                 `https://www.php.net/${args[1]}`);
-                        })
-                        .catch(error => console.error('L\'entrée ne se trouve pas dans la BDD'));
-
-
-                })
+                    })
+                        .catch(error => console.error('L\'entrée ne se trouve pas dans la BDD...'));
+                    })
                 .catch(err =>{
                     //handle error
                     console.log(err);
                 });
-
-
         }
-
     }
 };
