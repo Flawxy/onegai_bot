@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/fetchDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +80,14 @@
       <workItem from="1578570078989" duration="107000" />
       <workItem from="1578940610593" duration="8071000" />
       <workItem from="1578956577574" duration="387000" />
+      <workItem from="1578957085609" duration="68000" />
+      <workItem from="1579018034202" duration="81000" />
+      <workItem from="1579020292023" duration="59000" />
+      <workItem from="1579020763130" duration="703000" />
+      <workItem from="1579074158996" duration="36000" />
+      <workItem from="1579074871793" duration="52000" />
+      <workItem from="1579075032179" duration="117000" />
+      <workItem from="1579102083197" duration="207000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
