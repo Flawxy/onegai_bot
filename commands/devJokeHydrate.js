@@ -63,7 +63,7 @@ module.exports = {
                                         message.channel.send(`Aucune entrée rajoutée depuis la source ${url[i]}`);
                                     }
                                     if( messageCount === url.length) {
-                                        return message.reply("Hydratation terminée avec succès !");
+                                        return message.reply("Mise à jour terminée avec succès !");
                                     }
                                 }
                             }).then(() => {
@@ -74,6 +74,6 @@ module.exports = {
                     console.error(err);
                 });
         }
-        return message.reply(`Hydratation en cours depuis ${url.length} source(s) différente(s)...`)
+        return message.reply(`Mise à jour en cours depuis ${url.length} source(s) différente(s)...`)
     }
 };
