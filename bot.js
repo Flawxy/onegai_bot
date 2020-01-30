@@ -1,11 +1,9 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const {prefix} = require('./config.json');
-const {token} = process.env.token || require('./auth.json');
-const {adminID} = process.env.adminID || require('./auth.json');
+const {token} = process.env.BOT_TOKEN || require('./auth.json');
+const {adminID} = process.env.ADMIN_ID || require('./auth.json');
 const mongoose = require('mongoose');
-console.log({token});
-console.log({adminID});
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
