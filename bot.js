@@ -4,7 +4,8 @@ const {prefix} = require('./config.json');
 const {token} = require('./auth.json');
 const {adminID} = require('./auth.json');
 const mongoose = require('mongoose');
-
+console.log(process.env.ADMIN_ID);
+console.log(process.env.BOT_TOKEN);
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
