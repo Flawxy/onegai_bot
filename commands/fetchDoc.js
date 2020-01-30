@@ -1,8 +1,34 @@
+const Discord = require('discord.js');
+
 const PhpDoc = require('../models/phpDoc');
 
-const {prefix} = require('../config');
+const {prefix, botAvatar} = require('../config');
 const rp = require('request-promise');
 const $ = require('cheerio');
+
+function normalizeSyntax(array) {
+    array = array.replace('é', ',');
+    array = array.replace('[', ' [');
+    array = array.replace('(',' (');
+    array = array.replace(']', ' ]');
+    array = array.replace(')',' )');
+    array = array.replace('  ', ' ');
+    return array;
+}
+
+function displayResponse(docRequest, args) {
+
+    return new Discord.RichEmbed()
+        .setColor('#8585c2')
+        .setTitle(docRequest.name)
+        .setURL(`https://www.php.net/${args[1]}`)
+        .setDescription(docRequest.description)
+        .setThumbnail(botAvatar)
+        .addField('Syntaxe :', '```c++\n' + docRequest.syntax + "```")
+        .setImage('https://i.ibb.co/qmfr51w/logo-php-color.png')
+        .setFooter('Source : https://www.php.net/', 'https://i.ibb.co/YL0VybJ/php-Favicon.png');
+}
+
 
 module.exports = {
     name: 'fetchdoc',
@@ -41,13 +67,8 @@ module.exports = {
                         {
                             tab2 += tab[j].replace('\,', '');
                         }
-                        tab2 = tab2.replace('é', ',');
-                        tab2 = tab2.replace('[', ' [');
-                        tab2 = tab2.replace('(',' (');
-                        tab2 = tab2.replace(']', ' ]');
-                        tab2 = tab2.replace(')',' )');
-                        tab2 = tab2.replace('  ', ' ');
-                        syntax += `${tab2}`;
+
+                        syntax += `${normalizeSyntax(tab2)}`;
 
                     }
                     PhpDoc.findOne({ name: refName })
@@ -64,29 +85,16 @@ module.exports = {
                             newDoc.save()
                                 // Puis on affiche le résultat à l'utilisateur
                                 .then((newDoc) => {
-                                message.reply("\n__Fonction :__\n"+
-                                "**"+ newDoc.name + "** :arrow_right: `" + newDoc.description +"`"+
-                                "\n__Syntaxe :__\n"+
-                                "```c++\n"+
-                                newDoc.syntax+
-                                "```\n"+
-                                `https://www.php.net/${args[1]}`);
-                                console.log(`L'entrée ${newDoc.name} a bien été ajoutée à la BDD !`)})
-                                .catch(error => console.error('Erreur lors de l\'enregistrement dans la BDD : '+error));
-                        }
+                                    console.log(`L'entrée ${newDoc.name} a bien été ajoutée à la BDD !`);
+
+                                    return message.reply(displayResponse(newDoc, args));
+                                }).catch(error => console.error('Erreur lors de l\'enregistrement dans la BDD : '+error));
                         // Si la recherche est présente dans la BDD on l'affiche directement
-                           return message.reply("\n__Fonction :__\n"+
-                                "**"+ phpDoc.name + "** :arrow_right: `" + phpDoc.description +"`"+
-                                "\n__Syntaxe :__\n"+
-                                "```c++\n"+
-                                phpDoc.syntax+
-                                "```\n"+
-                                `https://www.php.net/${args[1]}`);
-                    })
-                        // On confirme que l'entrée n'est pas présente dans la BDD
-                        .catch(error => console.error('L\'entrée ne se trouve pas dans la BDD...'));
-                    })
-                .catch(err =>{ console.log(err); });
+                        }else {
+                            return message.reply(displayResponse(phpDoc, args));
+                        }
+                        }).catch(error => console.error(error));
+                }).catch(err =>{ console.log(err); });
         }
     }
 };

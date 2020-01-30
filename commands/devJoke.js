@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const DevJoke = require('../models/devJoke');
 
-const {prefix} = require('../config');
+const {prefix, botAvatar} = require('../config');
 const rp = require('request-promise');
 const $ = require('cheerio');
 
@@ -42,7 +42,7 @@ module.exports = {
                         .setTitle("Source de l'image")
                         .setURL('http://devhumor.com/category')
                         .setDescription(devJoke[randomNumber].caption)
-                        .setThumbnail('https://cdn.discordapp.com/avatars/662240066084798474/4b8610bda922866cc76f370987599b34.png')
+                        .setThumbnail(botAvatar)
                         .setImage(devJoke[randomNumber].url);
 
                     return message.channel.send(embedMessage);

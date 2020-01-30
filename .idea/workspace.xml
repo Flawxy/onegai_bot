@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands/devJokeHydrate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/devJoke.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/animh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/animh.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/phpDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/phpDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/devJoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/fetchDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,8 @@
       <workItem from="1580322353363" duration="639000" />
       <workItem from="1580323935439" duration="138000" />
       <workItem from="1580324095304" duration="171000" />
-      <workItem from="1580368925462" duration="26781000" />
+      <workItem from="1580368925462" duration="27477000" />
+      <workItem from="1580398879439" duration="2798000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
