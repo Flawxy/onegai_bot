@@ -32,7 +32,7 @@ module.exports = {
 
                 // Si l'image est un .gif, on affiche différemment
                 if(devJoke[randomNumber].url.includes('.gif')){
-                    message.channel.send(devJoke[randomNumber].caption);
+                    /*message.channel.send(devJoke[randomNumber].caption);*/
                     message.channel.send(devJoke[randomNumber].url);
 
                 // Sinon, l'image sera un .png ou .jpeg : on affiche en richembed text
