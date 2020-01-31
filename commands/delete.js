@@ -1,5 +1,6 @@
 module.exports = {
     name: 'delete',
+    aliases: ['del'],
     description: 'Supprime le nombre précisé de commentaires',
     args: true,
     usage: '<nombre>',

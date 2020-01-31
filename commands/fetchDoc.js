@@ -41,8 +41,9 @@ module.exports = {
     cooldown: 0,
     execute(message, args) {
         if (!args[1]) return message.channel.send(`\nLa bonne syntaxe est : \`${prefix}${this.name} ${this.usage}\``);
+
+        //Tout ce qui concerne la documentation PHP
         if (args[0].toLowerCase() === 'php' && args[1]) {
-            //Tout ce qui concerne la documentation PHP
             const url = `https://www.php.net/fr/${args[1]}`;
 
             rp(url)
@@ -95,6 +96,8 @@ module.exports = {
                         }
                         }).catch(error => console.error(error));
                 }).catch(err =>{ console.log(err); });
+        }else {
+            return message.reply(`Je ne connais pas encore le langage ${args[0]} ! Je ne prends en charge que le langage PHP actuellement.`)
         }
     }
 };

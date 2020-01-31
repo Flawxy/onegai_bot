@@ -40,7 +40,8 @@ function embedMessage(message, creationDate){
 
 module.exports = {
     name: 'server',
-    description: 'Affiche le nom du serveur et le nombre de membres',
+    aliases: ['sv'],
+    description: 'Affiche de nombreuses informations sur le serveur',
     args: false,
     usage: 'o*server',
     guildOnly: true,

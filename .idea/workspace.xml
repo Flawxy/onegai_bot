@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/devJoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/avatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/avatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/delete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/fetchDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/kick.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/kick.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +111,9 @@
       <workItem from="1580464743041" duration="2055000" />
       <workItem from="1580467115352" duration="146000" />
       <workItem from="1580467497196" duration="2970000" />
-      <workItem from="1580470646730" duration="80000" />
+      <workItem from="1580470646730" duration="112000" />
+      <workItem from="1580475668194" duration="4000" />
+      <workItem from="1580475828156" duration="727000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
@@ -166,6 +170,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="452" y="194" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1578491523530" />
+    <state x="694" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580476759867">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="694" y="423" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1580476759867" />
     <state x="539" y="15" key="search.everywhere.popup" timestamp="1578488154158">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
