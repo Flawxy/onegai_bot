@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 const {prefix} = require('./config.json');
 const {token} = process.env.BOT_TOKEN || require('./auth.json');
 const {adminID} = process.env.ADMIN_ID || require('./auth.json');
+const {dbLogin} = process.env.DB_LOGIN || require('./auth.json');
+const {dbPassword} = process.env.DB_PASSWORD || require('./auth.json');
 const mongoose = require('mongoose');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
@@ -17,11 +19,11 @@ for (const file of commandFiles) {
     bot.commands.set(command.name, command);
 }
 
-mongoose.connect('mongodb+srv://Flawxy:u19vbcvgxQgOeHZ3@onegaidb-tj9rb.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${process.env.DB_LOGIN || dbLogin}:${process.env.DB_PASSWORD || dbPassword}@onegaidb-tj9rb.mongodb.net/test?retryWrites=true&w=majority`,
     { useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
+    .catch(error => console.error("Impossible de se connecter à la BDD : " + error));
 
 
 bot.once('ready', () => {
