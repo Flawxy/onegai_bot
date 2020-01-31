@@ -3,7 +3,7 @@ module.exports = {
     description: 'Affiche la version du bot',
     args: false,
     usage: '',
-    guildOnly: true,
+    guildOnly: false,
     adminOnly: true,
     cooldown: 60,
     execute(message, args) {

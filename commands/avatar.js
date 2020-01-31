@@ -1,5 +1,6 @@
 module.exports = {
     name: 'avatar',
+    aliases: ['pp'],
     description: 'Affiche l\'avatar des utilisateurs précisés, sinon affiche son propre avatar',
     args: false,
     usage: '',
@@ -17,6 +18,6 @@ module.exports = {
 
         // send the entire array of strings as a message
         // by default, discord.js will `.join()` the array with `\n`
-        message.channel.send(avatarList);
+        return message.channel.send(avatarList);
     }
 };

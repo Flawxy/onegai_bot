@@ -1,5 +1,6 @@
 module.exports = {
     name: 'kick',
+    aliases: ['kc'],
     description: 'Kick un membre',
     args: true,
     usage: '<user>',
