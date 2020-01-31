@@ -8,6 +8,6 @@ module.exports = {
     cooldown: 60,
     execute(message, args) {
         const {version} = require('../package');
-        return message.channel.send("`Version actuelle de onegAI : " +version+ "`");
+        return message.channel.send(`\`Version actuelle d'OnegAI : ${version}\``);
     }
 };

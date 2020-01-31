@@ -13,7 +13,7 @@ function getRandomInt(max) {
 module.exports = {
     name: 'devjoke',
     aliases: ['dj'],
-    description: '',
+    description: 'Affiche un meme cherché au hasard dans la BDD',
     args: false,
     guildOnly: true,
     adminOnly: false,
@@ -21,7 +21,7 @@ module.exports = {
     execute(message, args) {
         DevJoke.countDocuments()
             .then((count) => {
-                message.channel.send(`J'ai mémorisé ${count} images pour le moment !`);
+                message.channel.send(`J'ai mémorisé \` ${count} images\` pour le moment !`);
                 message.channel.send("En voici une choisie au hasard par mes soins :");
             });
         DevJoke.find()
