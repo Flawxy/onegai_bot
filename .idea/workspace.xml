@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/avatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/avatar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/delete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/fetchDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchDoc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/kick.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/kick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/devJoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/devJokeHydrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJokeHydrate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +109,12 @@
       <workItem from="1580467497196" duration="2970000" />
       <workItem from="1580470646730" duration="112000" />
       <workItem from="1580475668194" duration="4000" />
-      <workItem from="1580475828156" duration="727000" />
+      <workItem from="1580475828156" duration="1629000" />
+      <workItem from="1580478662959" duration="603000" />
+      <workItem from="1580479851122" duration="76000" />
+      <workItem from="1580480301729" duration="5000" />
+      <workItem from="1580482538751" duration="16000" />
+      <workItem from="1580640500549" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>

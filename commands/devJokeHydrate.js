@@ -66,8 +66,6 @@ module.exports = {
                                         return message.reply("Mise à jour terminée avec succès !");
                                     }
                                 }
-                            }).then(() => {
-
                             }).catch(error => console.error(error));
                     }
                 }).catch(err => {
