@@ -27,10 +27,10 @@ module.exports = {
         DevJoke.find()
             .then(devJoke => {
                 const randomNumber = getRandomInt(devJoke.length);
-                // Je garde une trace des nombres générés automatiquement pour tracer d'éventuelles erreurs
+                // Je garde une trace des nombres générés automatiquement pour repérer d'éventuelles erreurs
                 console.log(`Nombre aléatoire généré par la commande devJoke : ${randomNumber}`);
 
-                // Si l'image est un .gif, on affiche différemment
+                // Si l'image est un .gif, on l'affiche différemment
                 if(devJoke[randomNumber].url.includes('.gif')){
                     /*message.channel.send(devJoke[randomNumber].caption);*/
                     message.channel.send(devJoke[randomNumber].url);
@@ -47,8 +47,6 @@ module.exports = {
 
                     return message.channel.send(embedMessage);
                 }
-
-                /**/
             }).catch(error => {
                 console.error('L\'entrée ne se trouve pas dans la BDD...');
             message.channel.send("Une erreur s'est produite. Je n'ai pas trouvé d'image...")
