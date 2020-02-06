@@ -52,7 +52,7 @@ bot.setInterval(() => {
     fetch('http://onegai-site.herokuapp.com/api/changelog')
         .then(res => res.json())
         .then(json => {
-            Changelog.findOne({version: newVersion})
+            Changelog.findOne({version: json.botVersion})
                 .then(changelog => {
                     // Si le changelog existe déjà, on arrête tout
                     if(changelog) return;
