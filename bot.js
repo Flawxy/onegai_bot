@@ -91,8 +91,8 @@ bot.setInterval(() => {
                             .setURL(newChangelog.url)
                             .setDescription(newChangelog.introduction)
                             .setThumbnail(botAvatar)
-                            .addField("Lien vers l'article", newChangelog.url, true)
-                            .addField("Lien vers la documentation", docUrl, true)
+                            .addField("Lien vers l'article", newChangelog.url)
+                            .addField("Lien vers la documentation", docUrl)
                             .setImage(newChangelog.image);
 
                         channel.send("@everyone OnegAI vient d'être mis à jour !");
