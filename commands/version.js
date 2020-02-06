@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 module.exports = {
     name: 'version',
     description: 'Affiche la version du bot',
@@ -7,7 +9,10 @@ module.exports = {
     adminOnly: true,
     cooldown: 60,
     execute(message, args) {
-        const {version} = require('../package');
-        return message.channel.send(`\`Version actuelle d'OnegAI : ${version}\``);
+        fetch('http://onegai-site.herokuapp.com/api/changelog')
+            .then(res => res.json())
+            .then(json => {
+                return message.channel.send(`\`Version actuelle d'OnegAI : ${json.botVersion}\``);
+            });
     }
 };
