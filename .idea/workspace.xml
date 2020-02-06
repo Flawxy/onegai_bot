@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/devJoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/devJokeHydrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJokeHydrate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +113,23 @@
       <workItem from="1580480301729" duration="5000" />
       <workItem from="1580482538751" duration="16000" />
       <workItem from="1580640500549" duration="115000" />
+      <workItem from="1580642909219" duration="2000" />
+      <workItem from="1580894314678" duration="47000" />
+      <workItem from="1580924038218" duration="623000" />
+      <workItem from="1580926033292" duration="8000" />
+      <workItem from="1580926057261" duration="43000" />
+      <workItem from="1580926810594" duration="609000" />
+      <workItem from="1580945709917" duration="366000" />
+      <workItem from="1580946218759" duration="1055000" />
+      <workItem from="1580983352748" duration="16000" />
+      <workItem from="1580984081331" duration="584000" />
+      <workItem from="1580984881832" duration="2106000" />
+      <workItem from="1580987822550" duration="3324000" />
+      <workItem from="1580993610228" duration="100000" />
+      <workItem from="1580993900929" duration="1804000" />
+      <workItem from="1580995727159" duration="491000" />
+      <workItem from="1580996251029" duration="1344000" />
+      <workItem from="1580998851420" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
@@ -135,10 +150,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580371492267">
+    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580995739445">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1580371492267" />
+    <state x="588" y="312" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1580995739445" />
     <state x="293" y="53" key="CommitChangelistDialog2" timestamp="1578491517819">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
