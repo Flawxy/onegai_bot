@@ -47,7 +47,7 @@ const fetch = require('node-fetch');
 const regex = /changelog /gi;
 const docUrl = 'http://onegai-site.herokuapp.com/doc';
 const Changelog = require('./models/changelog');
-const changelogChannel = 'changelog';
+const changelogChannel = 'onegai-changelog';
 
 bot.setInterval(() => {
     fetch('http://onegai-site.herokuapp.com/api/changelog')
