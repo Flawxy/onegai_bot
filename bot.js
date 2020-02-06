@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const {prefix} = require('./config.json');
+const {prefix, botAvatar} = require('./config');
 const {token} = process.env.BOT_TOKEN || require('./auth.json');
 const {adminID} = process.env.ADMIN_ID || require('./auth.json');
 const {dbLogin} = process.env.DB_LOGIN || require('./auth.json');
@@ -10,6 +10,9 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
 const cooldowns = new Discord.Collection();
+
+
+
 
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -38,6 +41,67 @@ bot.once('ready', () => {
         console.log('Currently listening from heroku server!') :
         console.log('Currently listening from local host!');
 });
+
+/* ------------------------------ 🢃 AUTOMATISATION DE L'AFFICHAGE DU NOUVEAU CHANGELOG 🢃 ------------------------------ */
+const fetch = require('node-fetch');
+const regex = /changelog /gi;
+const docUrl = 'http://onegai-site.herokuapp.com/doc';
+const Changelog = require('./models/changelog');
+const changelogChannel = 'changelog';
+
+bot.setInterval(() => {
+    fetch('http://onegai-site.herokuapp.com/api/changelog')
+        .then(res => res.json())
+        .then(json => {
+            const newVersion = json.title.replace(regex, '');
+            Changelog.findOne({version: newVersion})
+                .then(changelog => {
+                    // Si le changelog existe déjà, on arrête tout
+                    if(changelog) return;
+
+                    const newChangelog = new Changelog({
+                        title: json.title,
+                        version: newVersion,
+                        introduction: json.introduction,
+                        image: json.image,
+                        url: 'https://onegai-site.herokuapp.com/posts/' + json.slug
+                    });
+
+                    // On ajoute le changelog en nouvelle entrée de BDD
+                    newChangelog.save();
+
+                    // On parcourt tous les serveurs où se trouve OnegAI
+                    bot.guilds.forEach(guild => {
+                        const channel = guild.channels.find(ch => ch.name === changelogChannel);
+                        // Si le channel n'existe pas on contacte en DM le propriétaire du Discord
+                        if(!channel) {
+                            return guild.owner.user.send("Désolé de t'importuner mais il me semble que tu es " +
+                                "le propriétaire du Discord **" + guild.name + "** et je n'ai pas réussi à y " +
+                                "envoyer un message car ce Discord ne dispose pas de salon textuel nommé \"**" + changelogChannel + "**\"." +
+                                "\nCe salon me permet de prévenir ta communauté quand une nouvelle mise à jour est disponible" +
+                                "\nTu peux remédier à ce problème en créant un salon textuel \"**" + changelogChannel + "**\" et " +
+                                "m'y donner les droits d'écriture. Où tu peux ignorer ce message si tu ne désires pas " +
+                                "être informé de mes mises à jour." +
+                                "\n Bonne journée et merci encore d'utiliser OnegAI !");
+                        }
+                        // Si le channel existe on prépare un embed message à envoyer
+                        const embedMessage = new Discord.RichEmbed()
+                            .setColor('#e2bc9e')
+                            .setTitle(newChangelog.title)
+                            .setURL(newChangelog.url)
+                            .setDescription(newChangelog.introduction)
+                            .setThumbnail(botAvatar)
+                            .addField("Lien vers l'article", newChangelog.url, true)
+                            .addField("Lien vers la documentation", docUrl, true)
+                            .setImage(newChangelog.image);
+
+                        channel.send("@everyone OnegAI vient d'être mis à jour !");
+                        return channel.send(embedMessage);
+                    });
+                });
+        });
+},1000*60);
+/* ------------------------------ 🢁 AUTOMATISATION DE L'AFFICHAGE DU NOUVEAU CHANGELOG 🢁 ------------------------------ */
 
 
 // Nouvel événement quand un nouvel utilisateur rejoint le serveur

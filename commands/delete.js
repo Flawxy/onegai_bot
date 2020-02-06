@@ -6,7 +6,7 @@ module.exports = {
     usage: '<nombre>',
     guildOnly: false,
     adminOnly: false,
-    cooldown: 1,
+    cooldown: 10,
     execute(message, args) {
         if(message.member.hasPermission('MANAGE_CHANNELS')) {
             const amount = parseInt(args[0]) + 1;
@@ -39,5 +39,4 @@ module.exports = {
 
         }else return message.reply('Désolé mais je n\'obéis qu\' à mon maître !');
     }
-
 };
