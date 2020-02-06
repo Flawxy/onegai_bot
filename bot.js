@@ -44,7 +44,6 @@ bot.once('ready', () => {
 
 /* ------------------------------ 🢃 AUTOMATISATION DE L'AFFICHAGE DU NOUVEAU CHANGELOG 🢃 ------------------------------ */
 const fetch = require('node-fetch');
-const regex = /changelog /gi;
 const docUrl = 'http://onegai-site.herokuapp.com/doc';
 const Changelog = require('./models/changelog');
 const changelogChannel = 'onegai-changelog';
@@ -53,7 +52,6 @@ bot.setInterval(() => {
     fetch('http://onegai-site.herokuapp.com/api/changelog')
         .then(res => res.json())
         .then(json => {
-            const newVersion = json.title.replace(regex, '');
             Changelog.findOne({version: newVersion})
                 .then(changelog => {
                     // Si le changelog existe déjà, on arrête tout
@@ -61,7 +59,7 @@ bot.setInterval(() => {
 
                     const newChangelog = new Changelog({
                         title: json.title,
-                        version: newVersion,
+                        version: json.botVersion,
                         introduction: json.introduction,
                         image: json.image,
                         url: 'https://onegai-site.herokuapp.com/posts/' + json.slug

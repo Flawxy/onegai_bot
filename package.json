@@ -1,6 +1,6 @@
 {
   "name": "onegai_bot",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "onegAI bot for Discord environment",
   "main": "bot.js",
   "scripts": {
