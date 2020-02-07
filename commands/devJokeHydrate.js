@@ -4,6 +4,21 @@ const {prefix} = require('../config');
 const rp = require('request-promise');
 const $ = require('cheerio');
 
+const devHumorCategory = "http://devhumor.com/category";
+const url = [
+    devHumorCategory + "/comics",
+    devHumorCategory + "/gifs",
+    devHumorCategory + "/memes",
+    devHumorCategory + "/motivational",
+    devHumorCategory + "/code",
+    devHumorCategory + "/git",
+    devHumorCategory + "/bugs",
+    devHumorCategory + "/mrw",
+    devHumorCategory + "/quote",
+    devHumorCategory + "/tests",
+    devHumorCategory + "/uncategorized"
+];
+
 module.exports = {
     name: 'devjokehydrate',
     aliases: ['djh'],
@@ -13,22 +28,7 @@ module.exports = {
     adminOnly: true,
     cooldown: 1800,
     execute(message, args) {
-        const devHumorCategory = "http://devhumor.com/category";
-        const url = [
-            devHumorCategory + "/comics",
-            devHumorCategory + "/gifs",
-            devHumorCategory + "/memes",
-            devHumorCategory + "/motivational",
-            devHumorCategory + "/code",
-            devHumorCategory + "/git",
-            devHumorCategory + "/bugs",
-            devHumorCategory + "/mrw",
-            devHumorCategory + "/quote",
-            devHumorCategory + "/tests",
-            devHumorCategory + "/uncategorized"
-        ];
         let messageCount = 0;
-
 
         for(let i = 0 ; i < url.length; i++) {
             rp(url[i])
