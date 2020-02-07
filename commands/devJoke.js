@@ -40,7 +40,7 @@ module.exports = {
                     const embedMessage = new Discord.RichEmbed()
                         .setColor('#0099ff')
                         .setTitle("Source de l'image")
-                        .setURL('http://devhumor.com/category')
+                        .setURL('http://devhumor.com/')
                         .setDescription(devJoke[randomNumber].caption)
                         .setThumbnail(botAvatar)
                         .setImage(devJoke[randomNumber].url);
