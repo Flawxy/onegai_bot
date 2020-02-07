@@ -74,10 +74,10 @@ bot.setInterval(() => {
                             return guild.owner.user.send("Désolé de t'importuner mais il me semble que tu es " +
                                 "le propriétaire du Discord **" + guild.name + "** et je n'ai pas réussi à y " +
                                 "envoyer un message car ce Discord ne dispose pas de salon textuel nommé \"**" + onegaiChannel + "**\"." +
-                                "\nCe salon me permet de prévenir ta communauté quand une nouvelle mise à jour est disponible" +
+                                "\nCe salon me permet de communiquer avec ta communauté en la tenant au courant de mes dernières informations" +
                                 "\nTu peux remédier à ce problème en créant un salon textuel \"**" + onegaiChannel + "**\" et " +
                                 "m'y donner les droits d'écriture. Où tu peux ignorer ce message si tu ne désires pas " +
-                                "être informé de mes mises à jour." +
+                                "être informé de mon actualité." +
                                 "\n Bonne journée et merci encore d'utiliser OnegAI !");
                         }
                         // Si le channel existe on prépare un embed message à envoyer
@@ -91,7 +91,7 @@ bot.setInterval(() => {
                             .addField("Lien vers la documentation", docUrl)
                             .setImage(newChangelog.image);
 
-                        channel.send("@everyone OnegAI vient d'être mis à jour !");
+                        channel.send("@here OnegAI vient d'être mis à jour !");
                         return channel.send(embedMessage);
                     });
                 });
