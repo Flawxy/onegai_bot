@@ -11,23 +11,21 @@ bot.commands = new Discord.Collection();
 
 const cooldowns = new Discord.Collection();
 
-
-
-
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     bot.commands.set(command.name, command);
 }
+/* ------------------------------ 🢃 CONNEXION DU BOT ET DE LA BDD 🢃 ------------------------------ */
+bot.login(process.env.BOT_TOKEN || token);
 
 mongoose.connect(`mongodb+srv://${process.env.DB_LOGIN || dbLogin}:${process.env.DB_PASSWORD || dbPassword}@onegaidb-tj9rb.mongodb.net/test?retryWrites=true&w=majority`,
     { useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(error => console.error("Impossible de se connecter à la BDD : " + error));
-
+/* ------------------------------ 🢁 CONNEXION DU BOT ET DE LA BDD 🢁 ------------------------------ */
 
 bot.once('ready', () => {
     //Attribution de l'activité et du statut du bot
@@ -46,7 +44,7 @@ bot.once('ready', () => {
 const fetch = require('node-fetch');
 const docUrl = 'http://onegai-site.herokuapp.com/doc';
 const Changelog = require('./models/changelog');
-const changelogChannel = 'onegai-changelog';
+const onegaiChannel = 'onegai';
 
 bot.setInterval(() => {
     fetch('http://onegai-site.herokuapp.com/api/changelog')
@@ -70,14 +68,14 @@ bot.setInterval(() => {
 
                     // On parcourt tous les serveurs où se trouve OnegAI
                     bot.guilds.forEach(guild => {
-                        const channel = guild.channels.find(ch => ch.name === changelogChannel);
+                        const channel = guild.channels.find(ch => ch.name === onegaiChannel);
                         // Si le channel n'existe pas on contacte en DM le propriétaire du Discord
                         if(!channel) {
                             return guild.owner.user.send("Désolé de t'importuner mais il me semble que tu es " +
                                 "le propriétaire du Discord **" + guild.name + "** et je n'ai pas réussi à y " +
-                                "envoyer un message car ce Discord ne dispose pas de salon textuel nommé \"**" + changelogChannel + "**\"." +
+                                "envoyer un message car ce Discord ne dispose pas de salon textuel nommé \"**" + onegaiChannel + "**\"." +
                                 "\nCe salon me permet de prévenir ta communauté quand une nouvelle mise à jour est disponible" +
-                                "\nTu peux remédier à ce problème en créant un salon textuel \"**" + changelogChannel + "**\" et " +
+                                "\nTu peux remédier à ce problème en créant un salon textuel \"**" + onegaiChannel + "**\" et " +
                                 "m'y donner les droits d'écriture. Où tu peux ignorer ce message si tu ne désires pas " +
                                 "être informé de mes mises à jour." +
                                 "\n Bonne journée et merci encore d'utiliser OnegAI !");
@@ -98,8 +96,88 @@ bot.setInterval(() => {
                     });
                 });
         });
-},1000*60);
+},1000*60); // Toutes les minutes
 /* ------------------------------ 🢁 AUTOMATISATION DE L'AFFICHAGE DU NOUVEAU CHANGELOG 🢁 ------------------------------ */
+
+/* ------------------------- 🢃 AUTOMATISATION DE LA MISE À JOURS DE LA BDD POUR LES DEVJOKES 🢃 ------------------------- */
+const DevJoke = require('./models/devJoke');
+
+const rp = require('request-promise');
+const $ = require('cheerio');
+
+const devHumorCategory = "http://devhumor.com/category";
+const url = [
+    devHumorCategory + "/comics",
+    devHumorCategory + "/gifs",
+    devHumorCategory + "/memes",
+    devHumorCategory + "/motivational",
+    devHumorCategory + "/code",
+    devHumorCategory + "/git",
+    devHumorCategory + "/bugs",
+    devHumorCategory + "/mrw",
+    devHumorCategory + "/quote",
+    devHumorCategory + "/tests",
+    devHumorCategory + "/uncategorized"
+];
+
+bot.setInterval(() => {
+    let messageCount = 0;
+    let updateMessage = true;
+
+    for(let i = 0 ; i < url.length; i++) {
+        rp(url[i])
+            .then(html => {
+                //success!
+                const myLoader = $.load(html);
+                const images = url[i] !== 'http://devhumor.com/category/gifs' ? $('div[data-id]>div.item-large>a>img', html) :
+                    $('div[data-id]>div.item-large>div.animated-gif>img', html);
+                let newEntryAdded = false;
+                bot.guilds.forEach(guild => {
+                    const channel = guild.channels.find(ch => ch.name === onegaiChannel);
+                    // Si le channel n'existe pas on stop tout
+                    if(!channel) return;
+
+                        for (let j = 0; j < images.length; j++) {
+
+                            DevJoke.findOne({url: images[j].attribs.src})
+                                .then(devJoke => {
+                                    // Si la recherche n'existe pas dans la BDD
+                                    if (!devJoke) {
+                                        let $caption = images[j].attribs.alt || 'IMAGE_GIF';
+                                        const newJoke = new DevJoke({
+                                            caption: $caption,
+                                            url: images[j].attribs.src
+                                        });
+                                        // On ajoute la recherche en nouvelle entrée de BDD
+                                        newJoke.save();
+                                        newEntryAdded = true;
+                                    }
+                                    if(j === images.length - 1) {
+                                        if (newEntryAdded) {
+                                            messageCount++;
+                                            channel.send(`${guild.owner} **Nouvelle(s) image(s) ajoutée(s) depuis la source ${url[i]}**`);
+                                        } else {
+                                            messageCount++;
+                                            channel.send(`Aucune entrée rajoutée depuis la source ${url[i]}`);
+                                        }
+                                        if( messageCount === url.length) {
+                                            return channel.send(`${guild.owner}Mise à jour terminée avec succès !`);
+                                        }
+                                    }
+                                }).catch(error => console.error(error));
+                        }
+                        if(updateMessage) {
+                            updateMessage = false;
+                            return channel.send(`${guild.owner} Mise à jour en cours depuis ${url.length} source(s) différente(s)...`)
+                        }
+
+                });
+                }).catch(err => {
+            console.error(`Erreur lors de la mise à jour de la BDD pour les devJokes : ${err}`);
+        });
+    }
+},1000*60*60*8); // Toutes les 8 heures
+/* ------------------------- 🢁 AUTOMATISATION DE LA MISE À JOURS DE LA BDD POUR LES DEVJOKES 🢁 ------------------------- */
 
 
 // Nouvel événement quand un nouvel utilisateur rejoint le serveur
@@ -174,5 +252,3 @@ bot.on('message', message => {
         return message.reply('Une erreur s\'est produite lors de l\'exécution de cette commande');
     }
 });
-
-bot.login(process.env.BOT_TOKEN || token);
