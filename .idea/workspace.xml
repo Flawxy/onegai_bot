@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/devJoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +132,22 @@
       <workItem from="1580996251029" duration="1344000" />
       <workItem from="1580998851420" duration="327000" />
       <workItem from="1581000123183" duration="537000" />
-      <workItem from="1581000850180" duration="742000" />
+      <workItem from="1581000850180" duration="1895000" />
+      <workItem from="1581007668601" duration="17000" />
+      <workItem from="1581007759141" duration="7000" />
+      <workItem from="1581008022069" duration="7000" />
+      <workItem from="1581008673905" duration="36000" />
+      <workItem from="1581009128086" duration="31000" />
+      <workItem from="1581009313535" duration="20000" />
+      <workItem from="1581009363503" duration="20000" />
+      <workItem from="1581009576786" duration="16000" />
+      <workItem from="1581009626265" duration="4000" />
+      <workItem from="1581009702160" duration="3000" />
+      <workItem from="1581009725425" duration="3000" />
+      <workItem from="1581009853004" duration="13000" />
+      <workItem from="1581010013091" duration="25000" />
+      <workItem from="1581010107913" duration="52000" />
+      <workItem from="1581060813504" duration="142000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
