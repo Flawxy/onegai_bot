@@ -4,8 +4,6 @@
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/devJokeHydrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJokeHydrate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +148,8 @@
       <workItem from="1581010013091" duration="25000" />
       <workItem from="1581010107913" duration="52000" />
       <workItem from="1581060813504" duration="647000" />
-      <workItem from="1581093535711" duration="3838000" />
+      <workItem from="1581093535711" duration="5124000" />
+      <workItem from="1581099843479" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>
