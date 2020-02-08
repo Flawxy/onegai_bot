@@ -104,6 +104,7 @@ const DevJoke = require('./models/devJoke');
 
 const rp = require('request-promise');
 const $ = require('cheerio');
+const onegaiUpdateChannel = 'onegai-maj';
 
 const devHumorCategory = "http://devhumor.com/category";
 const url = [
@@ -133,7 +134,7 @@ bot.setInterval(() => {
                     $('div[data-id]>div.item-large>div.animated-gif>img', html);
                 let newEntryAdded = false;
                 bot.guilds.forEach(guild => {
-                    const channel = guild.channels.find(ch => ch.name === onegaiChannel);
+                    const channel = guild.channels.find(ch => ch.name === onegaiUpdateChannel);
                     // Si le channel n'existe pas on stop tout
                     if(!channel) return;
 
