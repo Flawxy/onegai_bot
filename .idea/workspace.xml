@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30aa7369-05f9-46eb-beb3-ef6a1deac2a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bot/automated/_missingChannelMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/automated/changelogUpdates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/automated/devJokesUpdate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/dbConnect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/events/onGuildMemberAdd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/events/onMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/events/onceReady.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/bot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/avatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/avatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/delete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/devJoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJoke.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/devJokeHydrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/devJokeHydrate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/fetchDoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fetchDoc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/kick.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/kick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/listening.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/listening.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/version.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +54,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Documents/hunspell-french-dictionaries-v6.4.1/fr-toutesvariantes.dic" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Y:\Bibliothèque Yann\Bureau\Bureau\Etudes\Développeur web junior\Projet 5\- PROJET - bot\bot" />
+      <recent name="Y:\Bibliothèque Yann\Bureau\Bureau\Etudes\Développeur web junior\Projet 5\- PROJET - bot" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -154,7 +178,9 @@
       <workItem from="1581100901790" duration="23000" />
       <workItem from="1581100973067" duration="4000" />
       <workItem from="1581160960092" duration="2000" />
-      <workItem from="1581204350450" duration="94000" />
+      <workItem from="1581204350450" duration="190000" />
+      <workItem from="1581249575263" duration="244000" />
+      <workItem from="1581318305521" duration="15652000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1578491519315</created>

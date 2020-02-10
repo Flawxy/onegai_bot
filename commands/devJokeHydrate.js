@@ -25,7 +25,8 @@ module.exports = {
     description: '',
     args: false,
     guildOnly: false,
-    adminOnly: true,
+    moderatorOnly: false,
+    creatorOnly: true,
     cooldown: 1800,
     execute(message, args) {
         let messageCount = 0;
@@ -33,7 +34,6 @@ module.exports = {
         for(let i = 0 ; i < url.length; i++) {
             rp(url[i])
                 .then(html => {
-                    //success!
                     const myLoader = $.load(html);
                     const images = url[i] !== 'http://devhumor.com/category/gifs' ? $('div[data-id]>div.item-large>a>img', html) :
                         $('div[data-id]>div.item-large>div.animated-gif>img', html);
@@ -43,14 +43,14 @@ module.exports = {
 
                         DevJoke.findOne({url: images[j].attribs.src})
                             .then(devJoke => {
-                                // Si la recherche n'existe pas dans la BDD
+                                // If the media is not present in the DB...
                                 if (!devJoke) {
                                     let $caption = images[j].attribs.alt || 'IMAGE_GIF';
                                     const newJoke = new DevJoke({
                                         caption: $caption,
                                         url: images[j].attribs.src
                                     });
-                                    // On ajoute la recherche en nouvelle entrée de BDD
+                                    // ...saves the new media in the DB
                                     newJoke.save();
                                     newEntryAdded = true;
                                 }

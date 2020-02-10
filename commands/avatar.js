@@ -5,7 +5,8 @@ module.exports = {
     args: false,
     usage: '',
     guildOnly: false,
-    adminOnly: false,
+    moderatorOnly: false,
+    creatorOnly: false,
     cooldown: 0,
     execute(message, args) {
         if (!message.mentions.users.size) {
@@ -16,8 +17,8 @@ module.exports = {
             return `Avatar de ${user.username} : <${user.displayAvatarURL}>`;
         });
 
-        // send the entire array of strings as a message
-        // by default, discord.js will `.join()` the array with `\n`
+        // Sends the entire array of strings as a message
+        // By default, discord.js will `.join()` the array with `\n`
         return message.channel.send(avatarList);
     }
 };
