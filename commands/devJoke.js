@@ -16,7 +16,8 @@ module.exports = {
     description: 'Affiche un meme cherché au hasard dans la BDD',
     args: false,
     guildOnly: true,
-    adminOnly: false,
+    moderatorOnly: false,
+    creatorOnly: false,
     cooldown: 10,
     execute(message, args) {
         DevJoke.countDocuments()
@@ -27,15 +28,12 @@ module.exports = {
         DevJoke.find()
             .then(devJoke => {
                 const randomNumber = getRandomInt(devJoke.length);
-                // Je garde une trace des nombres générés automatiquement pour repérer d'éventuelles erreurs
-                console.log(`Nombre aléatoire généré par la commande devJoke : ${randomNumber}`);
 
-                // Si l'image est un .gif, on l'affiche différemment
+                // If the media is a .gif, displays it differently...
                 if(devJoke[randomNumber].url.includes('.gif')){
-                    /*message.channel.send(devJoke[randomNumber].caption);*/
                     message.channel.send(devJoke[randomNumber].url);
 
-                // Sinon, l'image sera un .png ou .jpeg : on affiche en richembed text
+                // ...else, the media is whether .jpeg or .png : displays it with a rich embed message
                 }else {
                     const embedMessage = new Discord.RichEmbed()
                         .setColor('#0099ff')

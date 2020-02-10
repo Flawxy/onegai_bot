@@ -6,7 +6,8 @@ module.exports = {
     args: false,
     usage: '',
     guildOnly: false,
-    adminOnly: true,
+    moderatorOnly: false,
+    creatorOnly: true,
     cooldown: 60,
     execute(message, args) {
         fetch('http://onegai-site.herokuapp.com/api/changelog')

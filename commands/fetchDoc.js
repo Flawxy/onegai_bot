@@ -37,18 +37,18 @@ module.exports = {
     args: true,
     usage: '<langage> <notion>',
     guildOnly: false,
-    adminOnly: false,
+    moderatorOnly: false,
+    creatorOnly: false,
     cooldown: 0,
     execute(message, args) {
         if (!args[1]) return message.channel.send(`\nLa bonne syntaxe est : \`${prefix}${this.name} ${this.usage}\``);
 
-        //Tout ce qui concerne la documentation PHP
+        // PHP category
         if (args[0].toLowerCase() === 'php' && args[1]) {
             const url = `https://www.php.net/fr/${args[1]}`;
 
             rp(url)
                 .then(html => {
-                    //success!
                     const myLoader = $.load(html);
                     if($('.methodsynopsis', html).length === 0){
                         const closestMatch = $('#quickref_functions > li', html).eq(0).text();
@@ -74,7 +74,7 @@ module.exports = {
                     }
                     PhpDoc.findOne({ name: refName })
                         .then(phpDoc =>{
-                        // Si la recherche n'existe pas dans la BDD
+                        // If the searched function is not present in the DB...
                         if(!phpDoc) {
                             const newDoc = new PhpDoc({
                                 name: refName,
@@ -82,15 +82,15 @@ module.exports = {
                                 syntax: syntax,
                                 url: url
                             });
-                            // On ajoute la recherche en nouvelle entrée de BDD
+                            // ...saves the new function in the DB...
                             newDoc.save()
-                                // Puis on affiche le résultat à l'utilisateur
+                                // ...then displays the result
                                 .then((newDoc) => {
                                     console.log(`L'entrée ${newDoc.name} a bien été ajoutée à la BDD !`);
 
                                     return message.reply(displayResponse(newDoc, args));
                                 }).catch(error => console.error('Erreur lors de l\'enregistrement dans la BDD : '+error));
-                        // Si la recherche est présente dans la BDD on l'affiche directement
+                        // If the searched function already exists in the DB, displays it
                         }else {
                             return message.reply(displayResponse(phpDoc, args));
                         }
