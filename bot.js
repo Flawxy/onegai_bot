@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const notificationChannel = 'discussion';
+const administrationChannel = 'onegai-admin';
+const changelogsChannel = 'onegai';
 
 // Bot connexion
 const login = require('./bot/login');
@@ -12,7 +15,7 @@ const onceReady = require('./bot/events/onceReady');
 onceReady(bot);
 // Sets the bot behaviour when a new member joins the Discord server
 const newMember = require('./bot/events/onGuildMemberAdd');
-newMember(bot, 'test-bot');
+newMember(bot, notificationChannel);
 // Sets the bot behaviour for specified messages
 const onMessage = require('./bot/events/onMessage');
 onMessage(bot);
@@ -20,8 +23,8 @@ onMessage(bot);
 /* -------------------- 🢃 AUTOMATED FUNCTIONS 🢃 -------------------- */
 // Displays a new changelog when it's available on the website
 const changelogUpdates = require('./bot/automated/changelogUpdates');
-changelogUpdates(bot, 60, 'onegai');
+changelogUpdates(bot, 60, changelogsChannel);
 
 // Updates the DB with new devJokes images
 const devJokesUpdate = require('./bot/automated/devJokesUpdate');
-devJokesUpdate(bot, 60*8, 'onegai-updates');
+devJokesUpdate(bot, 60*8, administrationChannel);
