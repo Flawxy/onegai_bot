@@ -44,7 +44,7 @@ function normalizeSyntax(string) {
 module.exports = {
     name: 'fetchdoc',
     aliases: ['fd'],
-    description: 'Cherche la documentation de la notion précisée dans le langage précisé (PHP uniquement actuellement).',
+    description: 'Cherche la documentation de la fonction précisée dans le langage précisé (PHP uniquement actuellement).',
     args: true,
     usage: '<langage> <notion>',
     guildOnly: false,
