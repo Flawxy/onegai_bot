@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
-
 const PhpDoc = require('../models/phpDoc');
-
 const {prefix, botAvatar} = require('../config');
 const rp = require('request-promise');
 const $ = require('cheerio');
