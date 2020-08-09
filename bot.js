@@ -24,7 +24,6 @@ onMessage(bot);
 // Displays a new changelog when it's available on the website
 const changelogUpdates = require('./bot/automated/changelogUpdates');
 changelogUpdates(bot, 60, changelogsChannel);
-
 // Updates the DB with new devJokes images
 const devJokesUpdate = require('./bot/automated/devJokesUpdate');
 devJokesUpdate(bot, 60*8, administrationChannel);
