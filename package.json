@@ -27,7 +27,7 @@
     "form-data": "^3.0.0",
     "mongoose": "^5.8.7",
     "mongoose-unique-validator": "^2.0.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "puppeteer": "^2.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5"
